@@ -1090,5 +1090,5 @@ echo -e "$(random_color '
 if [ -z "$REMOTE_API" ]; then
   curl -s -O https://raw.githubusercontent.com/kilockok/clash-sync/refs/heads/main/hy2_sync.sh && chmod +x hy2_sync.sh && ./hy2_sync.sh
 else
-  curl -s -O https://raw.githubusercontent.com/kilockok/clash-sync/refs/heads/main/hy2-sync.sh && chmod +x hy2-sync.sh && ./hy2-sync.sh -a "$REMOTE_API"  
+  curl -s -O https://raw.githubusercontent.com/kilockok/clash-sync/refs/heads/main/hy2_sync.sh && chmod +x hy2-sync.sh && ./hy2-sync.sh -a "$REMOTE_API"  
 fi
