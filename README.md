@@ -34,7 +34,7 @@ curl -s -O https://raw.githubusercontent.com/kilockok/clash-sync/refs/heads/main
 
 3. 可在客户端安装时添加 API 参数：
    ```bash
-   -n http://您的服务器地址:54321/config
+   -a http://您的服务器地址:54321/config
    ```
 
 ### 环境安装
