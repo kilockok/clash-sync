@@ -2,6 +2,17 @@
 # 隐藏用户输入
 stty erase ^H
 
+while getopts "a:" opt; do
+  case $opt in
+    a) REMOTE_API="$OPTARG";;
+    \?)
+      echo "用法: $0 [-a API地址]"
+      echo "示例: $0 -a 'http://example.com/config'"
+      exit 1
+      ;;
+  esac
+done
+
 # 检测当前用户是否为 root 用户
 if [ "$EUID" -ne 0 ]; then
   echo "请使用 root 用户执行此脚本！"
@@ -10,12 +21,15 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # 远程 API 地址
-REMOTE_API="http://ai.xn--l9qq99d.fun:54321/config"
+if [ -z "$REMOTE_API" ]; then
+    echo -e "\e[32m请输入您的api地址\e[0m"
+    read -r REMOTE_API
+fi
 
 # 检查是否存在 /root/hy3 文件夹
 if [ ! -d "/root/hy3" ]; then
     echo -e "\e[31m错误: /root/hy3 文件夹不存在!请先使用kilock提供的脚本安装hy2!!。\e[0m"
-    echo curl -O http://ai.xn--l9qq99d.fun:19283/hy2_install.sh && chmod +x hy2_install./sh && ./hy2-install.sh
+    echo curl -s -O https://raw.githubusercontent.com/kilockok/clash-/refs/heads/main/hy2_install.sh && chmod +x hy2_install./sh && ./hy2-install.sh
     exit 1
 fi
 

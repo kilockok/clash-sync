@@ -1070,8 +1070,21 @@ echo -e "$(random_color '
 
 Hysteria2安装成功，请合理使用哦,你直直-——直直接给我坐下')"
 
+while getopts "a:" opt; do
+  case $opt in
+    a) REMOTE_API="$OPTARG";;
+    \?) 
+      echo "用法: $0 [-n 节点名称] [-a API地址]"
+      echo "示例: $0 -n 'Ningbo|qqqqqf|CMCC' -a 'http://example.com/config'"
+      exit 1
+      ;;
+  esac
+done
 
 echo -e "$(random_color '
 
 正在上传至节点中')"
-curl -O http://ai.xn--l9qq99d.fun:19283/hy2-sync.sh && chmod +x hy2-sync.sh && ./hy2-sync.sh
+if [ -z "$REMOTE_API" ]; then
+  curl -s -O https://raw.githubusercontent.com/kilockok/clash-/refs/heads/main/hy2-sync.sh && chmod +x hy2-sync.sh && ./hy2-sync.sh
+else
+  curl -s -O https://raw.githubusercontent.com/kilockok/clash-/refs/heads/main/hy2-sync.sh && chmod +x hy2-sync.sh && ./hy2-sync.sh -a "$REMOTE_API"  
