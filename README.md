@@ -14,12 +14,12 @@
 > 基于 [hysteria2](https://github.com/seagullz4/hysteria2) 修改，如有侵权请联系我删除，谢谢>_<
 
 ```bash
-curl -s https://raw.githubusercontent.com/kilockok/clash-sync/refs/heads/main/hy2_install.sh && chmod +x hy2_install.sh && ./hy2_install.sh
+curl -s -O https://raw.githubusercontent.com/kilockok/clash-sync/refs/heads/main/hy2_install.sh && chmod +x hy2_install.sh && ./hy2_install.sh
 ```
 
 #### 2. 仅部署同步脚本
 ```bash
-curl -s https://raw.githubusercontent.com/kilockok/clash-sync/refs/heads/main/hy2_sync.sh && chmod +x hy2_sync.sh && ./hy2_sync.sh
+curl -s -O https://raw.githubusercontent.com/kilockok/clash-sync/refs/heads/main/hy2_sync.sh && chmod +x hy2_sync.sh && ./hy2_sync.sh
 ```
 
 ## 二、服务器端部署
