@@ -1,5 +1,6 @@
 #!/bin/bash
 # 检测当前用户是否为 root 用户
+stty erase ^H
 if [ "$EUID" -ne 0 ]; then
   echo "请使用 root 用户执行此脚本！"
   echo "你可以使用 'sudo -i' 进入 root 用户模式。"
